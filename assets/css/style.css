@@ -12,6 +12,10 @@
     /* padding: 10px; */    
 }
 
+textarea {
+    background-color: transparent;
+    color: black;
+}
 header {
     color: white;
 }
