@@ -17,7 +17,7 @@
         <script 
           type="text/javascript"
           src="https://npmcdn.com/parse/dist/parse.min.js"
-        ></script>       
+        ></script> 
 
         <title>Cinemateca N697</title>  
     </head>
@@ -29,7 +29,9 @@
         integrity="sha384-qKXV1j0HvMUeCBQ+QVp7JcfGl760yU08IQ+GpUo5hlbpg51QRiuqHAJz8+BrxE/N"
         crossorigin="anonymous"
       ></script> 
-  
+
+      <script src="requests.js"></script>
+
       <header>
           <h1><center>Cinemateca N697</center></h1>
       </header>
@@ -52,14 +54,22 @@
           </ul>
           <div class="tab-content">
             <div class="tab-pane fade show active" id="filmes">
-              <h4 class="mt-2">Cadastro de Filmes</h4>
               <div class="formularios">
                 <form autocomplete="off">
-                  <label for="tituloBr">Título do Filme (no Brasil)*</label>
-                  <input id="tituloBr" type="text" class="input-padrao" required/>
+                  <p>Orientações:</p>                  
+                  1) 
+                  
+                </form>
+              </div>
 
-                  <label for="tituloOriginal">Título Original</label>
-                  <input id="tituloOriginal" type="text" class="input-padrao"/>
+              <h4 class="mt-2">CRUD de Filmes</h4>
+              <div class="formularios">
+                <form autocomplete="off">
+                  <label for="nomeBr">Título do Filme (no Brasil)*</label>
+                  <input id="nomeBr" type="text" class="input-padrao" required/>
+
+                  <label for="nomeOriginal">Título Original</label>
+                  <input id="nomeOriginal" type="text" class="input-padrao"/>
 
                   <label for="ano">Ano</label>
                   <input
@@ -69,61 +79,89 @@
                     max="2099"
                     step="1"
                     value=""                                           
-                  /> 
-                                    
+                  />                                     
                   <button id="btnSalvarFilme" class="enviar">Salvar Filme</button>
+                  <br><br>                                    
+                </form>                
+              </div>
+              <br>
+              <div class="formularios">                
+                <form autocomplete="off">
+                  <h5>Informe um código de filme contido nas respostas às requisições:</h5>
+                  <label for="codigoFilme">Código do filme*</label>
+                  <input id="codigoFilme" type="text" class="input-padrao"/>                  
+                  <button id="btnBuscarFilme" class="enviar">Buscar Filme</button>           
+                  <br><br>
+                  <textarea id="filmeSelecionado" ; name="filmeSelecionado" ; rows='12' ; cols='75' ; maxlength="100" ; disabled=true;
+                    style="text-align:left" ;>
+                  </textarea>
+                  <br>
+                  <button id="btnExcluirFilme" class="enviar">Excluir Filme</button>           
+                  <br><br>
+                  <label for="nomeBrUpd">Novo titulo do Filme no Brasil*</label>
+                  <input id="nomeBrUpd" type="text" class="input-padrao"/>
+                  <label for="nomeOriginalUpd">Novo título original do Filme</label>
+                  <input id="nomeOriginalUpd" type="text" class="input-padrao"/>
+                  <label for="anoUpd">Novo ano</label>
+                  <input
+                    id="anoUpd"  
+                    type="number"
+                    min="1895"
+                    max="2099"
+                    step="1"
+                    value=""                                           
+                  />                                     
+                  <br>
+                  <button id="btnAtualizarFilme" class="enviar">Atualizar Filme</button>           
                 </form>
+              </div>                            
+              <br>
+              <div class="formularios">
+                <form>
+                  <button id="btnListarFilmes" class="enviar">Listar Filmes</button>           
+                </form>                
               </div>
-              <br />
-              <div class="filmes-table">
-                <table class="list" id="filmesList">
-                  <thead>
-                    <tr>
-                      <th>Título BR</th>
-                      <th>Título Original</th>
-                      <th>Ano</th>                      
-                      <th>Ações</th>
-                    </tr>
-                  </thead>
-                  <tbody></tbody>
-                </table>
+              <br>
+              <!--
+              <div>
+                <table id="tabela"></table>
               </div>
+              -->
+              <div class="formularios">
+                <h5>Resultado das requisições:</h5>                                
+                <form>                  
+                  <textarea id="respostas" ; name="respostas" ; rows='100'; cols='45'; maxlength="100" ; disabled=true;
+                    style="text-align:left" ;>
+                  </textarea>
+                </form>
+              </div>              
             </div>
 
             <div class="tab-pane fade" id="generos">
               <h4 class="mt-2">Cadastro de Gêneros de Filmes</h4>  
               <div class="formularios">
-                <form >
-                  <input id="username" type="text" placeholder="Username" />
-                  <input id="email" type="email" placeholder="Email" />
-                  <input id="password" type="password" placeholder="Password" />
-                  <button id="createButton">Create User</button>
+                <form autocomplete="off">
+                
                 </form>           
               </div> 
             </div>
 
             <div class="tab-pane fade" id="atores">
-              <h4 class="mt-2">Cadastro de Atores</h4>
-              <p>
-                Donec vel placerat quam, ut euismod risus. Sed a mi suscipit,
-                elementum sem a, hendrerit velit. Donec at erat magna. Sed dignissim
-                orci nec eleifend egestas. Donec eget mi consequat massa vestibulum
-                laoreet. Mauris et ultrices nulla, malesuada volutpat ante. Fusce ut
-                orci lorem. Donec molestie libero in tempus imperdiet. Cum sociis
-                natoque penatibus et magnis.
-              </p>
+              <h4 class="mt-2">Cadastro de Atores</h4>              
+                <div class="formularios">
+                  <form autocomplete="off">
+                  
+                  </form>           
+                </div>            
             </div>
 
             <div class="tab-pane fade" id="origens">
               <h4 class="mt-2">Cadastro de Países de Origem</h4>
-              <p>
-                Donec vel placerat quam, ut euismod risus. Sed a mi suscipit,
-                elementum sem a, hendrerit velit. Donec at erat magna. Sed dignissim
-                orci nec eleifend egestas. Donec eget mi consequat massa vestibulum
-                laoreet. Mauris et ultrices nulla, malesuada volutpat ante. Fusce ut
-                orci lorem. Donec molestie libero in tempus imperdiet. Cum sociis
-                natoque penatibus et magnis.
-              </p>
+              <div class="formularios">
+                <form autocomplete="off">
+                
+                </form>           
+              </div>
             </div>
 
           </div>
@@ -146,83 +184,33 @@
       </footer>
     </body>
     
-    <script>
-      // Initialize Parse
-        Parse.initialize( 
-          "SR88mOTb1V4tEj7QZn9yzLDJwjOYyUKtu0hKrHnq",
-          "JPSSpkDvxjEGK0BwVtxgZ52Zg8wjqAgPQ1724Le6");
-        Parse.serverURL = "https://parseapi.back4app.com/";    
-        
-        /*
-        var Filme = Parse.Object.extend("Filme");
-
-        getFilmes();
-
-        function getFilmes() {
-          queryFilmes = new Parse.Query(Filme);
-          //alert(queryFilmes);
-        }
-        */
-
-        // Cadastrar um novo FILME
-        async function cadastrarFilme() {                              ;
-          let filme = new Parse.Filme();                        
-          filme.set("nomeBr", document.getElementById("tituloBr").value);            
-          alert(filme.get("nomeBr"));
-          filme.set("nomeOriginal", document.getElementById("tituloOriginal").value);
-          filme.set("ano", document.getElementById("ano").value);
-                    
-          try {
-            //alert("before save");
-            filme = await filme.save();              
-            //alert("after save");
-            if (filme !== null) {              
-              alert(
-                `Filme cadastrado com sucesso! ObjectId: ${
-                  filme.id                    
-                }, ${filme.get("nomeBr")}`                  
-              );
-            }
-          } catch (error) {
-            alert(`Erro: ${error.message}`);
-          }
-          //alert("fim da função Cadastrar Filme");
-        }
+    <script>    
 
         document.getElementById("btnSalvarFilme").addEventListener("click", async function () {
-          cadastrarFilme();
+          document.getElementById('respostas').value = "";
+          cadastrarFilme();          
         });
 
-        // Create a new User
-        async function createParseUser() {
-            // Creates a new Parse "User" object, which is created by default in your Parse app
-            let user = new Parse.User();
-            // Set the input values to the new "User" object
-            user.set("username", document.getElementById("username").value);
-            user.set("email", document.getElementById("email").value);
-            user.set("password", document.getElementById("password").value);
-            try { 
-              // Call the save method, which returns the saved object if successful
-              user = await user.save();
-              
-              if (user !== null) {
-                // Notify the success by getting the attributes from the "User" object, by using the get method (the id attribute needs to be accessed directly, though)
-                alert(
-                  `New object created with success! ObjectId: ${
-                    user.id
-                  }, ${user.get("username")}`
-                );
-                
-              }
-            } catch (error) {
-              alert(`Error: ${error.message}`);
-            }
-        };
-
-        document.getElementById("createButton").addEventListener("click", async function () {
-          createParseUser();
+        document.getElementById("btnBuscarFilme").addEventListener("click", async function () {
+          document.getElementById('respostas').value = "";
+          lerFilme();          
         });
 
+        document.getElementById("btnExcluirFilme").addEventListener("click", async function () {
+          document.getElementById('respostas').value = "";
+          deletarFilme();                
+        });
+        
+        document.getElementById("btnAtualizarFilme").addEventListener("click", async function () {          
+          document.getElementById('respostas').value = "";
+          atualizarFilme();       
+        });
+
+        document.getElementById("btnListarFilmes").addEventListener("click", async function () {
+          document.getElementById('respostas').value = "";
+          exibirFilmes();                              
+        });
+    
     </script>   
 
 </html>
